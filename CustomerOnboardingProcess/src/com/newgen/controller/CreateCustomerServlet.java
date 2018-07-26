@@ -55,7 +55,6 @@ public class CreateCustomerServlet extends HttpServlet {
 				cusomerDTO.setPanNo(panNo);
 				cusomerDTO.setState(state);
 				cusomerDTO.setZipCode("5699001");
-                System.out.println("hi");
 				// Persistance Layer
 				CreateCustomerDAOImpl createCustomerDAOImpl = CreateCustomerDAOImpl.getInstance();
 				createCustomerDAOImpl.creatCustomer(cusomerDTO);

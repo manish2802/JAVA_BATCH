@@ -12,7 +12,7 @@ public class CommonUtil {
 	 * @return
 	 */
 	public static boolean isNotNull(String str) {
-		System.out.println(str);
+		System.out.println(str.length());
 		if (str != null || !str.equals("")) {
 			return true;
 		}
@@ -28,7 +28,6 @@ public class CommonUtil {
 	 * @return
 	 */
 	public static boolean getMobileNoLength(String str) {
-		System.out.println(str.length());
 		if (str.length() == 10) {
 			return true;
 		}
