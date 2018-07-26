@@ -9,6 +9,10 @@ import com.newgen.dto.CusomerDTO;
 import com.newgen.util.DBUtil;
 
 public class CreateCustomerDAOImpl {
+	
+	private CreateCustomerDAOImpl() {
+		
+	}
 
 	static CreateCustomerDAOImpl INSTANCE = null;
 
@@ -41,8 +45,8 @@ public class CreateCustomerDAOImpl {
 		pstm.setString(9, cusomerDTO.getCity());
 		pstm.setString(10, cusomerDTO.getZipCode());
 		int i = pstm.executeUpdate();
+				
 		System.out.println(i + "Record inserted successfully");
-
 		DBUtil.closeConnection(con, pstm);
 
 	}
@@ -58,7 +62,11 @@ public class CreateCustomerDAOImpl {
 		System.out.println("Enter into creatCustomer ");
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstm = con.prepareStatement(QueryConstant.CREATE_CUST);
-
+		
 	}
+	
+	
+	
+	   
 
 }

@@ -19,7 +19,7 @@
 
 	<div id="home" class="container">
 
-		<form class="form-horizontal" action="/action_page.php">
+		<form class="form-horizontal" action="/CustomerOnboardingProcess/create" method="POST">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="fname">First
 					Name:</label>
@@ -53,18 +53,59 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="lname">Gender</label>
 				<div class="col-sm-10">
-					<input type="radio" name="gender" value="male" checked>
-					Male<br> <input type="radio" name="gender" value="female">
+					<input type="radio" name="gender" value="M" checked>
+					Male<br> <input type="radio" name="gender" value="F">
 					Female<br>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="lname">Address</label>
+				<label class="control-label col-sm-2" for="address">Address</label>
 				<div class="col-sm-10">
 					<div class="col-sm-10">
-					<input type="text" class="form-control" id="mno"
-						placeholder="Mobile Number" name="mno">
+						<input type="text" class="form-control" id="address"
+							placeholder="Address" name="address" >
+					</div>
 				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="panno">PAN NO</label>
+				<div class="col-sm-10">
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="panno"
+							placeholder="PAN NO" name="panno">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="state">State</label>
+				<div class="col-sm-10">
+					<select class="form-control" name="state">
+					  <option value="">-Select-</option>
+						<option value="Maharastra">Maharastra</option>
+						<option value="Mp">Mp</option>
+						<option value="Panjab">Panjab</option>
+						<option value="Ap">Ap</option>
+					</select>
+
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="lname">City</label>
+				<div class="col-sm-10">
+					<div class="col-sm-10">
+
+						<select class="form-control" name="city">
+						   <option value="">-Select-</option>
+							<option value="Mumbai">Mumbai</option>
+							<option value="Pune">Pune</option>
+							<option value="indore">indore</option>
+							<option value="Hyderabad">Hyderabad</option>
+						</select>
+					</div>
+
 				</div>
 			</div>
 
