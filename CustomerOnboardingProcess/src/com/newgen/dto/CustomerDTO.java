@@ -3,7 +3,7 @@ package com.newgen.dto;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class CusomerDTO implements Serializable {
+public class CustomerDTO implements Serializable {
 	/**
 	 * 
 	 */
@@ -98,6 +98,13 @@ public class CusomerDTO implements Serializable {
 
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+
+	@Override
+	public String toString() {
+		return "CusomerDTO [firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", gender=" + gender
+				+ ", mobileNum=" + mobileNum + ", address=" + address + ", panNo=" + panNo + ", state=" + state
+				+ ", city=" + city + ", zipCode=" + zipCode + "]";
 	}
 
 }

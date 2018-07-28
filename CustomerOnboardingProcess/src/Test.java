@@ -2,14 +2,14 @@ import java.sql.Date;
 import java.sql.SQLException;
 
 import com.newgen.dao.CreateCustomerDAOImpl;
-import com.newgen.dto.CusomerDTO;
+import com.newgen.dto.CustomerDTO;
 
 public class Test {
 
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 
-		CusomerDTO cusomerDTO = new CusomerDTO();
+		CustomerDTO cusomerDTO = new CustomerDTO();
 		cusomerDTO.setFirstName("suszvzvhil");
 		cusomerDTO.setLastName("gupta");
 		cusomerDTO.setDob(new Date(0));
@@ -21,7 +21,7 @@ public class Test {
 		cusomerDTO.setState("MP");
 		cusomerDTO.setZipCode("5699001");
 
-		CusomerDTO cusomerDTO2 = new CusomerDTO();
+		CustomerDTO cusomerDTO2 = new CustomerDTO();
 		cusomerDTO2.setFirstName("aszvzvishs");
 		cusomerDTO2.setLastName("gupta");
 		cusomerDTO2.setDob(new Date(0));

@@ -2,8 +2,8 @@ package com.newgen.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.newgen.dao.CreateCustomerDAOImpl;
-import com.newgen.dto.CusomerDTO;
+import com.newgen.dto.CustomerDTO;
 import com.newgen.util.CommonUtil;
 
 //@WebServlet(urlPatterns="/customer")
@@ -44,10 +44,10 @@ public class CreateCustomerServlet extends HttpServlet {
 				&& CommonUtil.getMobileNoLength(mno) && CommonUtil.isNotNull(state) && CommonUtil.isNotNull(city)
 				&& CommonUtil.isNotNull(panNo)) {
 			try {
-				CusomerDTO cusomerDTO = new CusomerDTO();
+				CustomerDTO cusomerDTO = new CustomerDTO();
 				cusomerDTO.setFirstName(fName);
 				cusomerDTO.setLastName(lastName);
-				cusomerDTO.setDob(new Date(0));
+				cusomerDTO.setDob(CommonUtil.convertStringToSQLDate(dob));
 				cusomerDTO.setGender(gen);
 				cusomerDTO.setAddress(address);
 				cusomerDTO.setCity(city);
@@ -63,6 +63,9 @@ public class CreateCustomerServlet extends HttpServlet {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (ParseException parse) {
+				parse.getMessage();
+				pw.println("<body>" + "Invalid" + "</body>");
 			}
 
 		} else {
