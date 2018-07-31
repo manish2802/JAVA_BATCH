@@ -36,6 +36,19 @@
 		<url-pattern>/home
 		</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>getallcustomer</servlet-name>
+		<servlet-class>com.newgen.controller.GetAllCustomerController
+		</servlet-class>
+		<load-on-startup>4</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getallcustomer</servlet-name>
+		<url-pattern>/all-customer
+		</url-pattern>
+	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

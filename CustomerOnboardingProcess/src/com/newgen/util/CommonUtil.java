@@ -18,7 +18,7 @@ public class CommonUtil {
 	 */
 	public static boolean isNotNull(String str) {
 		System.out.println(str);
-		if (!str.trim().equals("")) {
+		if (!"".equals(str)) {
 			return true;
 		}
 		return false;

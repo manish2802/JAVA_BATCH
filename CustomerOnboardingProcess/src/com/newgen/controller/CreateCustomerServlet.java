@@ -58,8 +58,9 @@ public class CreateCustomerServlet extends HttpServlet {
 				// Persistance Layer
 				CreateCustomerDAOImpl createCustomerDAOImpl = CreateCustomerDAOImpl.getInstance();
 				createCustomerDAOImpl.creatCustomer(cusomerDTO);
-				pw.println("<body>" + fName + "</br>" + lastName + "</br>" + gen + "</br>" + dob + "</br>" + address
-						+ "</body>");
+
+				pw.println("<body>" + "<h1>Record Inserted Sucessfully</h1>" + " " + "</body>");
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

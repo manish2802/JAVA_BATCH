@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.newgen.constant.QueryConstant;
@@ -93,8 +94,9 @@ public class CreateCustomerDAOImpl {
 			customerDTO.setCity(city);
 			customerDTO.setState(state);
 			listCustomers.add(customerDTO);
+		
 		}
-
+		System.out.println(listCustomers);
 		DBUtil.closeConnection(con, pstm);
 		return listCustomers;
 
@@ -107,7 +109,17 @@ public class CreateCustomerDAOImpl {
 	}
 
 	public static void main(String... k) throws SQLException {
-		CreateCustomerDAOImpl.getInstance().getCustomer();
+		List<CustomerDTO> list = CreateCustomerDAOImpl.getInstance().getCustomer();
+		System.out.println(list);
+		
+		
+		 for (CustomerDTO d : list) {
+			 
+			System.out.println(d); 
+		 
+		 }
+		 
+
 	}
 
 }

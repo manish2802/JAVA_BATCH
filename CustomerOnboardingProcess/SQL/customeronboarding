@@ -1,0 +1,12 @@
+CREATE TABLE `customer_info` (
+  `FIRST_NAME` varchar(20) DEFAULT NULL,
+  `LAST_NAME` varchar(20) DEFAULT NULL,
+  `DOB` date DEFAULT NULL,
+  `GENDER` varchar(2) DEFAULT NULL,
+  `MOBILE_NUM` varchar(12) DEFAULT NULL,
+  `ADDRESS` varchar(100) DEFAULT NULL,
+  `PAN_NO` varchar(10) DEFAULT NULL,
+  `STATE` varchar(10) DEFAULT NULL,
+  `CITY` varchar(10) DEFAULT NULL,
+  `ZIP` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
