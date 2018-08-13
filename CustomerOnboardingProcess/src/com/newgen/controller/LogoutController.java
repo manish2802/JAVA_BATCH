@@ -1,36 +1,32 @@
 package com.newgen.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//@WebServlet(urlPatterns="/customer")
-public class HomeController extends HttpServlet {
+
+public class LogoutController extends HttpServlet {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public HomeController() {
-		System.out.println("HomeController");
+	public LogoutController() {
+		System.out.println("LogoutController");
 	}
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		res.setContentType("text/html");// setting the content type
-
-		PrintWriter pw = res.getWriter();// get the stream to write the data
-		RequestDispatcher rd1 = req.getRequestDispatcher("/home.html");
-
-		rd1.include(req, res);
-		pw.close();// closing the stream
-
+		
+		HttpSession session = req.getSession();
+		session.invalidate();
+		res.sendRedirect(req.getContextPath() + "/login.html");
+		
 	}
 
 }

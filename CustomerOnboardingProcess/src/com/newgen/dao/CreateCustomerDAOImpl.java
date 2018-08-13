@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import com.newgen.constant.QueryConstant;
@@ -51,7 +50,7 @@ public class CreateCustomerDAOImpl {
 		pstm.setString(9, cusomerDTO.getCity());
 		pstm.setString(10, cusomerDTO.getZipCode());
 		int i = pstm.executeUpdate();
-
+		
 		System.out.println(i + "Record inserted successfully");
 		DBUtil.closeConnection(con, pstm);
 

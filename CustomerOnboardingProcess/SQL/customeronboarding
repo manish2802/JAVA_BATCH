@@ -1,4 +1,4 @@
-CREATE TABLE `customer_info` (
+REATE TABLE `customer_info` (
   `FIRST_NAME` varchar(20) DEFAULT NULL,
   `LAST_NAME` varchar(20) DEFAULT NULL,
   `DOB` date DEFAULT NULL,

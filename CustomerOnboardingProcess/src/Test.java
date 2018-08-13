@@ -37,6 +37,8 @@ public class Test {
 		CreateCustomerDAOImpl c1 = CreateCustomerDAOImpl.getInstance();
 		c.creatCustomer(cusomerDTO);
 		c.creatCustomer(cusomerDTO2);
+		
+		
 
 	}
 

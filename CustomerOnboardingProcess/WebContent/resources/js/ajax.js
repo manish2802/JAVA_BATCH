@@ -1,8 +1,6 @@
 $(document).ready(function() {
 	// process the form
-	$("#formo").on('submit', (function(event) {
-		
-	 
+	$("#formo").on('submit', (function(event) { 
 		console.log('hii');
 		event.preventDefault(); // avoid to execute the actual submit of the
 		// form.

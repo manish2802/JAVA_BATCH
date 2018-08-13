@@ -23,7 +23,7 @@ public class CreateCustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public CreateCustomerServlet() {
-		System.out.println("Object has been created ");
+		System.out.println("CreateCustomerServlet");
 	}
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
