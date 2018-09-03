@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	
-	//for default page
+
+	// for default page
 	var defaultpage = $('#nav ul li .active');
 	defaultpage.on($.ajax({
 		type : "GET",
@@ -9,8 +9,8 @@ $(document).ready(function() {
 			$('#welcome').html(responseText);
 		}
 	}));
-	
-    //for default page
+
+	// for default page
 	var defaultpage = $('#nav ul li .active');
 	defaultpage.on($.ajax({
 		type : "GET",
@@ -20,7 +20,6 @@ $(document).ready(function() {
 		}
 	}));
 
-	
 	// Set trigger and container variables
 	var trigger = $('#nav ul li a'), container = $('#content');
 	// Fire on click
@@ -37,6 +36,7 @@ $(document).ready(function() {
 			success : function(responseText, textStatus, request) {
 				debugger;
 				// alert(textStatus+''+request.getResponseHeader('session'));
+				console.log(request.getResponseHeader('Content-Type'));
 				$('#content').html(responseText);
 			}
 		});

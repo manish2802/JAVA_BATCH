@@ -12,7 +12,7 @@ import com.newgen.constant.QueryConstant;
 import com.newgen.dto.CustomerDTO;
 import com.newgen.util.DBUtil;
 
-public class CreateCustomerDAOImpl {
+public class CreateCustomerDAOImpl implements CreateCustomerDAO {
 
 	private CreateCustomerDAOImpl() {
 
@@ -50,7 +50,7 @@ public class CreateCustomerDAOImpl {
 		pstm.setString(9, cusomerDTO.getCity());
 		pstm.setString(10, cusomerDTO.getZipCode());
 		int i = pstm.executeUpdate();
-		
+
 		System.out.println(i + "Record inserted successfully");
 		DBUtil.closeConnection(con, pstm);
 
@@ -93,7 +93,7 @@ public class CreateCustomerDAOImpl {
 			customerDTO.setCity(city);
 			customerDTO.setState(state);
 			listCustomers.add(customerDTO);
-		
+
 		}
 		System.out.println(listCustomers);
 		DBUtil.closeConnection(con, pstm);
@@ -110,14 +110,12 @@ public class CreateCustomerDAOImpl {
 	public static void main(String... k) throws SQLException {
 		List<CustomerDTO> list = CreateCustomerDAOImpl.getInstance().getCustomer();
 		System.out.println(list);
-		
-		
-		 for (CustomerDTO d : list) {
-			 
-			System.out.println(d); 
-		 
-		 }
-		 
+
+		for (CustomerDTO d : list) {
+
+			System.out.println(d);
+
+		}
 
 	}
 

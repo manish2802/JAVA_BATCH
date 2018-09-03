@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 //@WebServlet(urlPatterns="/customer")
 public class HomeController extends HttpServlet {
@@ -24,11 +23,12 @@ public class HomeController extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		res.setContentType("text/html");// setting the content type
-
+		res.setHeader("login", "as");
 		PrintWriter pw = res.getWriter();// get the stream to write the data
 		RequestDispatcher rd1 = req.getRequestDispatcher("/home.html");
 
 		rd1.include(req, res);
+		
 		pw.close();// closing the stream
 
 	}

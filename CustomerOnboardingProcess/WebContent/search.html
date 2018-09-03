@@ -51,7 +51,8 @@ form.example::after {
 		function loadDoc() {
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
+				if (this.status == 200) {
+					debugger;
 					document.getElementById("demo").innerHTML = this.responseText;
 				}
 			};
@@ -66,9 +67,6 @@ form.example::after {
 		</button>
 	</form>
 	<div id="demo"></div>
-
-
-
 
 </body>
 </html>

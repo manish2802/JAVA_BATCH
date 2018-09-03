@@ -35,11 +35,13 @@ public class LoginFilter implements Filter {
 		HttpSession session = request.getSession(false);
 		String requestPath = request.getRequestURI();
 		System.out.println(requestPath);
-		if (requestPath.endsWith("") || requestPath.endsWith("login.html") || requestPath.contains("login")) {
+		if ( requestPath.endsWith("login.html")
+				|| (requestPath.contains("login") && request.getMethod().equals("POST"))) {
 			chain.doFilter(request, response);
 		} else if (null != session) {
 			chain.doFilter(request, response);
 		} else {
+			response.setHeader("status", "session-out");
 			response.sendRedirect("login.html");
 		}
 

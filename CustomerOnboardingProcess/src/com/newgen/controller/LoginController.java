@@ -20,6 +20,10 @@ public class LoginController extends HttpServlet {
 		System.out.println("LoginController");
 	}
 
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		res.sendRedirect(req.getContextPath() + "/login.html");
+	}
+
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		res.setContentType("text/html");// setting the content type
 		PrintWriter pw = res.getWriter();// get the stream to write the data
@@ -29,13 +33,15 @@ public class LoginController extends HttpServlet {
 		System.out.println(userName + " " + password);
 
 		if ("manish".equals(userName) && "1234".equals(password)) {
-			HttpSession session = req.getSession(true);
-			session.setMaxInactiveInterval(1 * 60);
+			HttpSession session = req.getSession();
+			System.out.println("Session Id: " + session.getId());
+			System.out.println("Creation Time: " + session.getCreationTime());
+			System.out.println("Get LastAccessTime: " + session.getLastAccessedTime());
+			session.setMaxInactiveInterval(30 * 30);
 			session.setAttribute("USER", "Manish");
 			res.sendRedirect("header");
 		} else {
-
-			System.out.println(req.getRequestURI());
+			
 			res.sendRedirect(req.getContextPath() + "/login.html");
 
 		}
