@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<!-- constructor injection -->
+	<bean id="employeeBO" class="com.asthvinayak.business.EmployeeBOImpl">
+		<constructor-arg name="empName" value="Manish" />
+		<constructor-arg name="salary" value="30000" />
+		<constructor-arg name="address" value="pune" />
+		<constructor-arg name="employeeDAO">
+			<ref bean="employeeDAO" />
+		</constructor-arg>
+	</bean>
+
+	<!-- setter injection -->
+	<bean id="customerBO" class="com.asthvinayak.business.CustomerBOImpl">
+		<property name="custName" value="Shrikant" />
+		<property name="custAddress" value="pune" />
+		<property name="employeeDAO">
+			<ref bean="employeeDAO" />
+		</property>
+	</bean>
+
+	<bean id="employeeDAO" class="com.asthvinayak.dao.EmployeeDAOImpl" />
+
+
+</beans>
