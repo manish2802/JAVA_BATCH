@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://ws.service.com/" xmlns:tns="http://ws.service.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getWheather" type="tns:getWheather"/>
+
+  <xs:element name="getWheather2" type="tns:getWheather2"/>
+
+  <xs:element name="getWheather2Response" type="tns:getWheather2Response"/>
+
+  <xs:element name="getWheatherResponse" type="tns:getWheatherResponse"/>
+
+  <xs:complexType name="getWheather2">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:wheatherVO" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="wheatherVO">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getWheather2Response">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getWheather">
+    <xs:sequence>
+      <xs:element name="city" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getWheatherResponse">
+    <xs:sequence>
+      <xs:element name="wheratherFoacasting" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

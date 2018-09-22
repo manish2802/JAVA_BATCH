@@ -1,0 +1,1 @@
+F:\JAVA_BATCH\git\SOAPProvider\build\classes>wsgen -cp . com.service.ws.WheatherServiceImpl -wsdl
