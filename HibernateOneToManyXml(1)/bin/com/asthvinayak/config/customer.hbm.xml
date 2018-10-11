@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.asthvinayak.model.CustomerDTO" table="customer_otm_xml">
+		<id name="customerId" column="custid" type="string" />
+
+
+		<property name="customerName" column="cust_name" type="string"
+			length="10" />
+		<set name="items" cascade="all"  lazy="true">
+			<key column="cid_fk" />
+			<one-to-many class="com.asthvinayak.model.ItemDTO" />
+		</set>
+	</class>
+</hibernate-mapping>
