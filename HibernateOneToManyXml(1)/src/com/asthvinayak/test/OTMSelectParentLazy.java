@@ -4,7 +4,7 @@ import com.asthvinayak.model.CustomerDTO;
 
 public class OTMSelectParentLazy {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		CustomerDTO cust = (CustomerDTO) OTMDaoFactory.getInstance().getParentLazy("105");
 
 		System.out.println(cust.getCustomerName());

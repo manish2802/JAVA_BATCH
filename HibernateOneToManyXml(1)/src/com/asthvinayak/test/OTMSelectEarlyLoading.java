@@ -6,7 +6,7 @@ public class OTMSelectEarlyLoading {
 
 	public static void main(String[] args) {
 		//Eager Required in entity.
-		CustomerDTO cust = (CustomerDTO) OTMDaoFactory.getInstance().getParentLazy("103");
+		CustomerDTO cust = (CustomerDTO) OTMDaoFactory.getInstance().getParentEarly("105");
 		System.out.println(cust.toString());
 	}
 }

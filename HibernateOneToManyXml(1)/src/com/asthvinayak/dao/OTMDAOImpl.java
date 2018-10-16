@@ -1,9 +1,13 @@
 package com.asthvinayak.dao;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.Query;
+
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -78,11 +82,12 @@ public class OTMDAOImpl {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws InterruptedException
 	 */
-	public CustomerDTO getParentLazy(Serializable id) {
+	public CustomerDTO getParentLazy(Serializable id) throws InterruptedException {
 
 		String METHOD_NAME = "getParentLazy";
-		
+
 		LOGGER.debug("Enter Into " + METHOD_NAME + " in " + CLASS_NAME);
 
 		Transaction transaction = null;
@@ -90,8 +95,12 @@ public class OTMDAOImpl {
 		Session session = HibernateUtil.currentSession();
 		try {
 			transaction = session.beginTransaction();
-			// Change in Entity Eager.
+			// Change in Entity Lazy.
 			customer = (CustomerDTO) session.get(CustomerDTO.class, id);
+
+			Thread.sleep(5000);
+
+			System.out.println(customer.getItems());
 			transaction.commit();
 		} catch (RuntimeException e) {
 			if (transaction != null) {
@@ -205,4 +214,48 @@ public class OTMDAOImpl {
 		LOGGER.debug("Exit from " + METHOD_NAME + " in " + CLASS_NAME);
 		return customer;
 	}
+
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 * @throws InterruptedException
+	 */
+	public CustomerDTO getParentLazyHQL() throws InterruptedException {
+
+		String METHOD_NAME = "getParentLazy";
+
+		LOGGER.debug("Enter Into " + METHOD_NAME + " in " + CLASS_NAME);
+
+		Transaction transaction = null;
+		CustomerDTO customer = null;
+		Session session = HibernateUtil.currentSession();
+		try {
+			transaction = session.beginTransaction();
+			// Change in Entity Lazy.
+			//Criteria criteria = session.createCriteria(CustomerDTO.class);
+			Query criteria= (Query) session.createQuery("from CustomerDTO");
+			List<CustomerDTO> list = criteria.getResultList();
+			
+			for (CustomerDTO ct : list) {
+				Thread.sleep(5000);
+				System.out.println(ct.getItems());
+
+			}
+
+			transaction.commit();
+		} catch (RuntimeException e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		LOGGER.debug("Exit from " + METHOD_NAME + " in " + CLASS_NAME);
+		return customer;
+	}
+	
+	
 }
