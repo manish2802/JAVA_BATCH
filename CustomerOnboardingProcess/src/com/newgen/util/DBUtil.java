@@ -21,6 +21,7 @@ public class DBUtil {
 	public static Connection getConnection() {
 		Connection con = null;
 		try {
+			
 			// Load the driver
 			Class.forName(DRIVER_NAME);
 			con = DriverManager.getConnection(URL, USER_NAME, PASSWORD);

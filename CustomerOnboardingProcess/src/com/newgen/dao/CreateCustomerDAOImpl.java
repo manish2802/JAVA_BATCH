@@ -107,6 +107,7 @@ public class CreateCustomerDAOImpl implements CreateCustomerDAO {
 
 	}
 
+	
 	public static void main(String... k) throws SQLException {
 		List<CustomerDTO> list = CreateCustomerDAOImpl.getInstance().getCustomer();
 		System.out.println(list);
